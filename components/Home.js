@@ -11,10 +11,10 @@ function Home() {
   const[decouverte, setDecouverte] = useState([]);
 
   useEffect(() => {
-    fetch('https://my-moviz-back-end-jet.vercel.app/')
+    fetch('https://my-moviz-back-end-jet.vercel.app/movies')
     .then(response => response.json())
     .then(data => {
-      const formatedData = data.movies.results.map(movie => {
+      const formatedData = data.movies.map(movie => {
         const poster = `https://image.tmdb.org/t/p/w500/${movie.poster_path}`;
         return {
           title: movie.title, poster, voteAverage: movie.vote_average, voteCount: movie.vote_count, overview: movie.overview 
